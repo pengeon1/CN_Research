@@ -20,6 +20,26 @@ from src.metrics.regression import compute_all_regression_metrics
 from src.metrics.sla import evaluate_sla_across_margins
 
 
+from concurrent.futures import ProcessPoolExecutor
+
+def _train_single_station_worker(args: tuple) -> Dict[str, Any]:
+    series, observation_window, prediction_window, epochs, batch_size = args
+    torch.set_num_threads(1)
+    dl_data = build_client_dataloaders(
+        series,
+        observation_window=observation_window,
+        prediction_window=prediction_window,
+        train_split=0.8,
+        val_split_within_train=0.15,
+        batch_size=batch_size,
+    )
+    return train_dlstm_agent(
+        dl_data["train_loader"],
+        dl_data["test_loader"],
+        epochs=epochs,
+    )
+
+
 def train_dlstm_agent(
     train_loader: DataLoader,
     test_loader: DataLoader,
@@ -106,21 +126,11 @@ def run_all_baselines(
             all_targets = []
             all_preds = []
 
-            for b in range(num_stations):
-                series = slice_matrix[b]
-                dl_data = build_client_dataloaders(
-                    series,
-                    observation_window=5,
-                    prediction_window=1,
-                    train_split=0.8,
-                    val_split_within_train=0.15,
-                    batch_size=16,
-                )
-                res = train_dlstm_agent(
-                    dl_data["train_loader"],
-                    dl_data["test_loader"],
-                    epochs=epochs,
-                )
+            worker_args = [(slice_matrix[b], 5, 1, epochs, 64) for b in range(num_stations)]
+            with ProcessPoolExecutor(max_workers=min(8, os.cpu_count() or 4)) as pool:
+                station_results = list(pool.map(_train_single_station_worker, worker_args))
+
+            for res in station_results:
                 station_rmses.append(res["metrics"]["RMSE"])
                 station_maes.append(res["metrics"]["MAE"])
                 station_mapes.append(res["metrics"]["MAPE"])

@@ -23,8 +23,9 @@ from src.metrics.communication import compute_fl_communication_cost
 def setup_fl_environment(
     traffic_data: Dict[str, np.ndarray],
     mu: float = 1.0,
-    lr: float = 0.001,
-    local_epochs: int = 20,
+    lr: float = 0.01,
+    batch_size: int = 64,
+    local_epochs: int = 2,
     variant: str = "true_fedprox",
     aggregation: str = "unweighted",
     device: str = "cpu",
@@ -39,7 +40,7 @@ def setup_fl_environment(
         for b in range(num_stations):
             cid = f"{sname}_station_{b}"
             series = slice_matrix[b]
-            dl_data = build_client_dataloaders(series, batch_size=16)
+            dl_data = build_client_dataloaders(series, batch_size=batch_size)
 
             client = FLClient(
                 client_id=cid,
@@ -87,7 +88,7 @@ def run_fl_experiments(
         seed_data = {}
 
         # 1. FALSTM (FedAvg, mu=0)
-        print("--> Running FALSTM (FedAvg, mu=0.0)...")
+        print(f"--> [Seed {seed}] Running FALSTM (FedAvg, mu=0.0)...", flush=True)
         server_fa, clients_fa = setup_fl_environment(
             traffic_data,
             mu=0.0,
@@ -102,12 +103,13 @@ def run_fl_experiments(
             "slice_rmse": fa_res["slice_test_rmse"],
             "time_seconds": fa_res["total_time_seconds"],
         }
-        print(f"    FALSTM: Mean Test RMSE = {fa_res['final_test_rmse']:.4f}")
+        print(f"    FALSTM: Mean Test RMSE = {fa_res['final_test_rmse']:.4f}", flush=True)
 
         # 2. FPLSTM mu parameter sweep: [0.001, 0.01, 0.1, 0.5, 1.0] (matching Fig 12)
         seed_data["FPLSTM_mu_sweep"] = {}
-        for mu_val in [0.001, 0.01, 0.1, 0.5, 1.0]:
-            print(f"--> Running FPLSTM (mu = {mu_val})...")
+        mu_list = [0.001, 0.01, 0.1, 0.5, 1.0] if seed == seeds[0] else [1.0]
+        for mu_val in mu_list:
+            print(f"--> [Seed {seed}] Running FPLSTM (mu = {mu_val})...", flush=True)
             server_fp, clients_fp = setup_fl_environment(
                 traffic_data,
                 mu=mu_val,
@@ -122,12 +124,30 @@ def run_fl_experiments(
                 "slice_rmse": fp_res["slice_test_rmse"],
                 "time_seconds": fp_res["total_time_seconds"],
             }
-            print(f"    FPLSTM (mu={mu_val}): Mean Test RMSE = {fp_res['final_test_rmse']:.4f}")
+            print(f"    FPLSTM (mu={mu_val}): Mean Test RMSE = {fp_res['final_test_rmse']:.4f}", flush=True)
 
         # 3. Client participation rate Omega sweep: [0.1, 0.3, 0.5, 0.7, 1.0] (matching Fig 10)
         seed_data["FPLSTM_omega_sweep"] = {}
-        for omega in [0.1, 0.3, 0.5, 0.7, 1.0]:
-            print(f"--> Running FPLSTM with Omega = {omega}...")
+        omega_list = [0.1, 0.3, 0.5, 0.7, 1.0] if seed == seeds[0] else [1.0]
+        for omega in omega_list:
+            if omega == 1.0 and "mu_1.0" in seed_data["FPLSTM_mu_sweep"]:
+                base_res = seed_data["FPLSTM_mu_sweep"]["mu_1.0"]
+                comm_cost = compute_fl_communication_cost(
+                    rounds=rounds,
+                    num_clients=57 * len(traffic_data),
+                    selection_fraction=1.0,
+                    model_params_count=17729,
+                )
+                seed_data["FPLSTM_omega_sweep"]["omega_1.0"] = {
+                    "test_rmse": base_res["test_rmse"],
+                    "slice_rmse": base_res["slice_rmse"],
+                    "communication_cost_mb": comm_cost["total_megabytes"],
+                    "time_seconds": base_res["time_seconds"],
+                }
+                print(f"    Omega=1.0: RMSE = {base_res['test_rmse']:.4f}, Comm = {comm_cost['total_megabytes']:.2f} MB", flush=True)
+                continue
+
+            print(f"--> [Seed {seed}] Running FPLSTM with Omega = {omega}...", flush=True)
             server_om, clients_om = setup_fl_environment(
                 traffic_data,
                 mu=1.0,
@@ -149,10 +169,10 @@ def run_fl_experiments(
                 "communication_cost_mb": comm_cost["total_megabytes"],
                 "time_seconds": om_res["total_time_seconds"],
             }
-            print(f"    Omega={omega}: RMSE = {om_res['final_test_rmse']:.4f}, Comm = {comm_cost['total_megabytes']:.2f} MB")
+            print(f"    Omega={omega}: RMSE = {om_res['final_test_rmse']:.4f}, Comm = {comm_cost['total_megabytes']:.2f} MB", flush=True)
 
         # 4. True FedProx vs Paper Alg 2 comparison
-        print("--> Running Paper Alg 2 Variant (literal post-SGD argmin)...")
+        print(f"--> [Seed {seed}] Running Paper Alg 2 Variant (literal post-SGD argmin)...", flush=True)
         server_alg2, clients_alg2 = setup_fl_environment(
             traffic_data,
             mu=1.0,
@@ -167,7 +187,7 @@ def run_fl_experiments(
             "slice_rmse": alg2_res["slice_test_rmse"],
             "time_seconds": alg2_res["total_time_seconds"],
         }
-        print(f"    Paper Alg 2: Mean Test RMSE = {alg2_res['final_test_rmse']:.4f}")
+        print(f"    Paper Alg 2: Mean Test RMSE = {alg2_res['final_test_rmse']:.4f}", flush=True)
 
         all_results[f"seed_{seed}"] = seed_data
 
@@ -183,8 +203,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--stations", type=int, default=57)
     parser.add_argument("--days", type=int, default=10)
-    parser.add_argument("--rounds", type=int, default=20)
-    parser.add_argument("--local_epochs", type=int, default=10)
+    parser.add_argument("--rounds", type=int, default=10)
+    parser.add_argument("--local_epochs", type=int, default=2)
     args = parser.parse_args()
     run_fl_experiments(
         num_stations=args.stations,

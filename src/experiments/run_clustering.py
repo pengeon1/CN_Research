@@ -25,8 +25,8 @@ def run_cluster_federations(
     clusters: Dict[int, List[int]],
     traffic_data: Dict[str, np.ndarray],
     sname: str,
-    rounds: int = 20,
-    local_epochs: int = 10,
+    rounds: int = 6,
+    local_epochs: int = 1,
     mu: float = 1.0,
     seed: int = 42,
 ) -> Dict[str, Any]:
@@ -47,7 +47,7 @@ def run_cluster_federations(
         for b in station_indices:
             client_key = f"{sname}_b{b}"
             series = slice_matrix[b]
-            dl = build_client_dataloaders(series, batch_size=16)
+            dl = build_client_dataloaders(series, batch_size=64)
             c_clients[client_key] = FLClient(
                 client_id=client_key,
                 slice_name=sname,
@@ -87,8 +87,8 @@ def run_clustering_experiments(
     num_stations: int = 57,
     duration_days: int = 10,
     k_clusters: int = 3,
-    rounds: int = 20,
-    local_epochs: int = 10,
+    rounds: int = 6,
+    local_epochs: int = 1,
     seeds: List[int] = [42, 1337, 2024],
     results_dir: str = "results",
 ) -> Dict[str, Any]:
@@ -187,8 +187,8 @@ if __name__ == "__main__":
     parser.add_argument("--stations", type=int, default=57)
     parser.add_argument("--days", type=int, default=10)
     parser.add_argument("--clusters", type=int, default=3)
-    parser.add_argument("--rounds", type=int, default=20)
-    parser.add_argument("--local_epochs", type=int, default=10)
+    parser.add_argument("--rounds", type=int, default=6)
+    parser.add_argument("--local_epochs", type=int, default=1)
     args = parser.parse_args()
     run_clustering_experiments(
         num_stations=args.stations,

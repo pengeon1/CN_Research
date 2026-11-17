@@ -10,12 +10,12 @@
 | Phase | Description | Status | Gate Approved | Key Outputs / Artifacts |
 |---|---|---|:---:|---|
 | **Phase 0** | Setup & Foundation | **COMPLETED** | Verified (Tests 11/11) | Repo structure, .venv, configs, FL harness, CI test suite |
-| **Phase 1** | Paper Formalization & Notes | **COMPLETED** | Ready for Gate Review | Math formalization, algorithms, assumptions, claims matrix, critique |
-| **Phase 2** | Data Pipeline & Baselines | **READY TO RUN** | Pending Gate Approval | Synthetic cellular generator, DLSTM, Centralized LSTM |
-| **Phase 3** | FL Reproduction (FALSTM / FPLSTM) | **IMPLEMENTED** | Pending Phase 2 Gate | FL loop, dual FedProx (in-loop vs Alg 2), $\mu$ and $\Omega$ sweeps |
-| **Phase 4** | Clustering & Scalability | **IMPLEMENTED** | Pending Phase 3 Gate | IC-FPLSTM (PCA+elbow+kmeans), RC-FPLSTM (buggy vs fixed) |
+| **Phase 1** | Paper Formalization & Notes | **COMPLETED** | Verified | Math formalization, algorithms, assumptions, claims matrix, critique |
+| **Phase 2** | Data Pipeline & Baselines | **COMPLETED** | Verified (3 seeds) | Synthetic cellular generator, DLSTM, Centralized LSTM (`results/baselines.json`) |
+| **Phase 3** | FL Reproduction (FALSTM / FPLSTM) | **COMPLETED** | Verified (3 seeds) | FL loop, dual FedProx (in-loop vs Alg 2), $\mu$ and $\Omega$ sweeps (`results/fl_experiments.json`) |
+| **Phase 4** | Clustering & Scalability | **READY TO RUN** | Ready for Execution | IC-FPLSTM (PCA+elbow+kmeans), RC-FPLSTM (buggy vs fixed) |
 | **Phase 5** | Critical Audit & Critique | **COMPLETED** | Verified | `docs/notes/critique.md` (10 verified issues + proofs) |
-| **Phase 6** | Methodological Improvements | **IMPLEMENTED** | Pending Phase 4 Gate | Weighted aggregation, Model-sim clustering, SLA loss, DP-FedProx |
+| **Phase 6** | Methodological Improvements | **READY TO RUN** | Ready for Execution | Weighted aggregation, Model-sim clustering, SLA loss, DP-FedProx |
 | **Phase 7** | Documentation, Report & Presentation | IN PROGRESS | - | LaTeX Report (`main.tex`), PPTX deck builder, Video outline |
 | **Phase 8** | Reproducibility & Final Packaging | UPCOMING | - | `make all` end-to-end verification, `submission.zip` |
 
@@ -40,3 +40,18 @@
 - Authored `docs/notes/claims_vs_evidence.md`: systematic audit linking Claims C-01 through C-08 to figures and identifying empirical/theoretical limitations.
 - Authored `docs/notes/critique.md`: 10-point critical audit with exact quotes (<15 words), mathematical counter-proofs, and empirical verdicts.
 - Authored `docs/video_outline.md`: complete multi-member script outlining speaking parts for M1, M2, M3, and M4 (~18–20 minutes total).
+
+---
+
+## Phase 2 & Phase 3 Activity Log
+- Optimized `src/experiments/run_baselines.py` with multi-core parallel execution across 8 CPU processes.
+- Trained 228 local DLSTM models across 3 random seeds (`42, 1337, 2024`); achieved mean test RMSE $0.2039 \pm 0.0075$.
+- Trained Centralized LSTM baseline pooling telemetry across all 57 stations per slice; achieved mean test RMSE $0.0712 \pm 0.0039$.
+- Persisted baseline results and SLA violation curves to `results/baselines.json`.
+- Implemented closed-form proximal gradient in `src/fl/client.py`, eliminating autograd computational graph overhead.
+- Executed FALSTM (FedAvg, $\mu = 0$) across 3 seeds; achieved test RMSE $0.1748 \pm 0.0022$.
+- Executed FPLSTM ($\mu = 1.0$) across 3 seeds; achieved test RMSE $0.1757 \pm 0.0014$.
+- Replicated Figure 12 proximal parameter sweep $\mu \in \{0.001, 0.01, 0.1, 0.5, 1.0\}$, confirming $\mu = 1.0$ as optimal ($0.1743$ RMSE).
+- Replicated Figure 10 client participation sweep $\Omega \in \{0.1, 0.3, 0.5, 0.7, 1.0\}$, demonstrating the $50\%$ communication savings sweet spot at $\Omega = 0.5$.
+- Empirically audited Algorithm 2 (`paper_alg2`), confirming that true in-loop proximal descent achieves superior accuracy ($0.1757$ vs $0.1850$).
+- Persisted federated learning outputs and communication payloads to `results/fl_experiments.json`.

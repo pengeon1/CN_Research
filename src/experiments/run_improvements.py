@@ -33,7 +33,7 @@ def run_dp_fl_simulation(
     traffic_data: Dict[str, np.ndarray],
     noise_sigma: float = 0.01,
     clip_norm: float = 1.0,
-    rounds: int = 20,
+    rounds: int = 6,
     seed: int = 42,
 ) -> Dict[str, float]:
     """
@@ -47,7 +47,7 @@ def run_dp_fl_simulation(
     for sname, slice_matrix in traffic_data.items():
         for b in range(slice_matrix.shape[0]):
             cid = f"{sname}_b{b}"
-            dl = build_client_dataloaders(slice_matrix[b], batch_size=16)
+            dl = build_client_dataloaders(slice_matrix[b], batch_size=64)
             clients[cid] = FLClient(
                 client_id=cid,
                 slice_name=sname,
@@ -55,7 +55,7 @@ def run_dp_fl_simulation(
                 model=global_model,
                 train_loader=dl["train_loader"],
                 test_loader=dl["test_loader"],
-                local_epochs=5,
+                local_epochs=1,
                 mu=1.0,
             )
 
@@ -97,8 +97,8 @@ def run_dp_fl_simulation(
 def run_all_improvements(
     num_stations: int = 57,
     duration_days: int = 10,
-    rounds: int = 20,
-    local_epochs: int = 10,
+    rounds: int = 6,
+    local_epochs: int = 1,
     seeds: List[int] = [42, 1337, 2024],
     results_dir: str = "results",
 ) -> Dict[str, Any]:
@@ -145,7 +145,7 @@ def run_all_improvements(
             for sname, s_list in hetero_traffic.items():
                 for b, series in enumerate(s_list):
                     cid = f"{sname}_b{b}"
-                    dl = build_client_dataloaders(series, batch_size=16)
+                    dl = build_client_dataloaders(series, batch_size=64)
                     clients[cid] = FLClient(
                         client_id=cid,
                         slice_name=sname,
@@ -174,7 +174,7 @@ def run_all_improvements(
         target_slice = "Facebook"
         for b in range(num_stations):
             cid = f"{target_slice}_b{b}"
-            dl = build_client_dataloaders(traffic_data[target_slice][b], batch_size=16)
+            dl = build_client_dataloaders(traffic_data[target_slice][b], batch_size=64)
             warmup_clients[cid] = FLClient(
                 client_id=cid,
                 slice_name=target_slice,
@@ -182,7 +182,7 @@ def run_all_improvements(
                 model=warmup_model,
                 train_loader=dl["train_loader"],
                 test_loader=dl["test_loader"],
-                local_epochs=2,
+                local_epochs=1,
             )
 
         client_vectors = []
@@ -215,7 +215,7 @@ def run_all_improvements(
             c_cls = {}
             for b in stations:
                 ckey = f"{target_slice}_b{b}"
-                dl = build_client_dataloaders(traffic_data[target_slice][b], batch_size=16)
+                dl = build_client_dataloaders(traffic_data[target_slice][b], batch_size=64)
                 c_cls[ckey] = FLClient(
                     client_id=ckey,
                     slice_name=target_slice,
@@ -247,7 +247,7 @@ def run_all_improvements(
             station_preds = []
             for b in range(min(15, num_stations)):  # fast subset for ablation
                 series = traffic_data["Facebook"][b]
-                dl = build_client_dataloaders(series, batch_size=16)
+                dl = build_client_dataloaders(series, batch_size=64)
                 mod = TrafficLSTM(input_dim=1, hidden_dim=64, output_dim=1)
                 opt = torch.optim.SGD(mod.parameters(), lr=0.001)
                 crit = nn.MSELoss() if loss_type == "MSE" else SLAPinballLoss(tau=0.8)
@@ -311,8 +311,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--stations", type=int, default=57)
     parser.add_argument("--days", type=int, default=10)
-    parser.add_argument("--rounds", type=int, default=20)
-    parser.add_argument("--local_epochs", type=int, default=10)
+    parser.add_argument("--rounds", type=int, default=6)
+    parser.add_argument("--local_epochs", type=int, default=1)
     args = parser.parse_args()
     run_all_improvements(
         num_stations=args.stations,

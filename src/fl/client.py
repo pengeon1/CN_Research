@@ -79,21 +79,18 @@ class FLClient:
                     x_b, y_b = x_b.to(self.device), y_b.to(self.device)
                     optimizer.zero_grad()
                     pred = self.model(x_b)
-                    base_loss = criterion(pred, y_b)
-
-                    # Proximal term: (mu / 2) * sum(||w - w_global||^2)
-                    if self.mu > 0.0:
-                        prox_loss = 0.0
-                        for name, param in self.model.named_parameters():
-                            if name in global_params:
-                                prox_loss += ((param - global_params[name]) ** 2).sum()
-                        loss = base_loss + (self.mu / 2.0) * prox_loss
-                    else:
-                        loss = base_loss
-
+                    loss = criterion(pred, y_b)
                     loss.backward()
+
+                    # Exact proximal gradient: mu * (w - w_global) added directly to gradients
+                    if self.mu > 0.0:
+                        with torch.no_grad():
+                            for name, param in self.model.named_parameters():
+                                if name in global_params and param.grad is not None:
+                                    param.grad.add_(param.data - global_params[name], alpha=self.mu)
+
                     optimizer.step()
-                    batch_losses.append(base_loss.item())
+                    batch_losses.append(loss.item())
                 if batch_losses:
                     epoch_losses.append(sum(batch_losses) / len(batch_losses))
 

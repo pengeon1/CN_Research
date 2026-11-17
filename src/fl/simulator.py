@@ -60,23 +60,30 @@ class FLSimulator:
 
             round_elapsed = time.time() - round_start
 
-            # Evaluate sampled or all clients
-            eval_metrics = self.evaluate_all_clients(use_test=False)
+            # Evaluate periodically (every 5 rounds or final round)
+            if (c + 1) == self.rounds or (c + 1) % 5 == 0:
+                eval_metrics = self.evaluate_all_clients(use_test=False)
+                mean_val = eval_metrics["mean_rmse"]
+                slice_val = eval_metrics["slice_rmse"]
+            else:
+                mean_val = None
+                slice_val = None
 
             round_info = {
                 "round": c + 1,
                 "selected_clients": len(selected_ids),
                 "round_time_sec": round_elapsed,
-                "mean_val_rmse": eval_metrics["mean_rmse"],
-                "slice_val_rmse": eval_metrics["slice_rmse"],
+                "mean_val_rmse": mean_val,
+                "slice_val_rmse": slice_val,
             }
             self.history.append(round_info)
 
             if verbose and ((c + 1) % 5 == 0 or c == 0 or c == self.rounds - 1):
+                val_str = f"{mean_val:.4f}" if mean_val is not None else "N/A"
                 print(
                     f"Round {c+1:2d}/{self.rounds} | "
                     f"Selected: {len(selected_ids):3d} | "
-                    f"Mean Val RMSE: {eval_metrics['mean_rmse']:.4f} | "
+                    f"Mean Val RMSE: {val_str} | "
                     f"Time: {round_elapsed:.2f}s"
                 )
 
