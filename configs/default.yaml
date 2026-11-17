@@ -1,0 +1,61 @@
+# Master Experiment Configuration
+# Target: "Multi-Slice Privacy-Aware Traffic Forecasting at RAN Level" (IEEE TNSM 2023)
+
+experiment:
+  name: "fplstm_ran_forecasting"
+  random_seeds: [42, 1337, 2024]
+  device: "cpu"
+  results_dir: "results"
+  figures_dir: "figures"
+
+data:
+  num_base_stations: 57
+  slices: ["Facebook", "YouTube", "Google", "Instagram"]
+  duration_days: 10
+  time_granularity_minutes: 10  # 144 time slots per day, 1440 total
+  train_split: 0.8              # 80% train (1152 slots), 20% test (288 slots)
+  val_split_within_train: 0.15  # 15% of train for hyperparameter tuning
+  default_observation_window: 5 # H = 5 (50 mins)
+  default_prediction_window: 1  # W = 1 (10 mins)
+  observation_window_sweep: [2, 5, 10, 15, 20]
+  prediction_window_sweep: [1, 3, 5, 10, 15]
+  normalization: "minmax"       # Per-series MinMax scaling fitted on train only
+
+model:
+  name: "LSTM"
+  input_dim: 1
+  hidden_dim: 64                # Table III: 64 hidden units
+  num_layers: 1
+  output_dim: 1                 # Forecasts next W values (or 1-step ahead)
+  dropout: 0.0
+
+training:
+  batch_size: 16                # Table III: 16 samples
+  local_epochs: 200             # Table III: 200 epochs
+  learning_rate: 0.001          # Table III: 0.001
+  optimizer: "SGD"              # Table III & Alg 2: SGD
+  loss_function: "RMSE"         # Table III: RMSE
+
+fl:
+  rounds: 20                    # Table III: C = 20 rounds
+  total_clients: 228            # 57 base stations * 4 slices = 228 local agents
+  client_participation_rate: 1.0 # Default Omega = 1.0
+  participation_rate_sweep: [0.1, 0.3, 0.5, 0.7, 1.0]
+  proximal_mu: 1.0              # Default mu = 1.0 (from Fig 12)
+  proximal_mu_sweep: [0.001, 0.01, 0.1, 0.5, 1.0]
+  aggregation_strategy: "unweighted" # Paper Alg 1 Line 7; 'weighted' for improvement (A)
+  implementation_variant: "true_fedprox" # 'true_fedprox' or 'paper_alg2'
+
+clustering:
+  num_clusters_default: 3
+  pca_components: 2             # Paper Sec VI-D: 2 components with PCA
+  max_iterations: 100
+  ic_fplstm_types: ["traffic_trend", "lat_long"]
+  rc_fplstm_types: ["random_balanced_fixed", "paper_buggy"]
+
+metrics:
+  regression: ["RMSE", "MAE", "MAPE"]
+  sla_margins: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5] # gamma over-provisioning margins
+  communication:
+    lstm_param_precision_bits: 32 # 32-bit float parameters
+

@@ -1,0 +1,32 @@
+# Python virtual environments & bytecode
+.venv/
+env/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing & caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary LaTeX build files
+docs/report/*.aux
+docs/report/*.log
+docs/report/*.out
+docs/report/*.toc
+docs/report/*.bbl
+docs/report/*.blg
+docs/report/*.synctex.gz
+docs/report/*.fls
+docs/report/*.fdb_latexmk
+
+# Final archive
+submission.zip
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
