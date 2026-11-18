@@ -155,10 +155,10 @@ def build_title_slide(prs):
     p_team.font.bold = True
     p_team.font.color.rgb = COLOR_ACCENT
 
-    add_bullet(ttf, "Member 1 (Paper Analyst):", "Problem formulation, RAN slicing motivation, and architectural model", pt_size=12)
-    add_bullet(ttf, "Member 2 (Reproduction Lead):", "Experimental setup, LSTM pipeline, baseline & FL reproduction (FALSTM, FPLSTM)", pt_size=12)
-    add_bullet(ttf, "Member 3 (Scalability Lead):", "Clustering replication (IC/RC-FPLSTM), scalability overhead, and communications", pt_size=12)
-    add_bullet(ttf, "Member 4 (Extension Lead):", "Critical audit findings (10 points) and 4 validated technical improvements", pt_size=12)
+    add_bullet(ttf, "Ankush R (CS24B1062) — Paper Analyst:", "Problem formulation, RAN slicing motivation, and architectural model", pt_size=12)
+    add_bullet(ttf, "Vihaan Gupta (CS24B1063) — Reproduction Lead:", "Experimental setup, LSTM pipeline, baseline & FL reproduction (FALSTM, FPLSTM)", pt_size=12)
+    add_bullet(ttf, "Piyush Mishra (CS24B1048) — Scalability Lead:", "Clustering replication (IC/RC-FPLSTM), scalability overhead, and communications", pt_size=12)
+    add_bullet(ttf, "Narayana Murthy S (CS24B1047) — Extension Lead:", "Critical audit findings (10 points) and 4 validated technical improvements", pt_size=12)
 
 
 def build_problem_slide(prs):
@@ -498,28 +498,28 @@ def build_all_slides(prs, figures_dir: str = "figures"):
     slide20 = prs.slides.add_slide(prs.slide_layouts[6])
     add_slide_header(slide20, "19. Individual Member Contributions", "Equitable Workload Distribution across 4 Team Members")
 
-    add_card(slide20, Inches(0.8), Inches(1.5), Inches(2.8), Inches(5.4), "Member 1 (Paper Analyst)")
+    add_card(slide20, Inches(0.8), Inches(1.5), Inches(2.8), Inches(5.4), "Ankush R (CS24B1062)\nPaper Analyst")
     tf20_1 = slide20.shapes.add_textbox(Inches(0.9), Inches(2.1), Inches(2.6), Inches(4.6)).text_frame
     tf20_1.word_wrap = True
     add_bullet(tf20_1, "Domain Model:", "5G RAN slicing, InP vs MVNO dynamics.", pt_size=11)
     add_bullet(tf20_1, "Math Audit:", "Formalized Table II, Eq. 1 objective, Eq. 2 LSTM parameter count (P=17,729).", pt_size=11)
     add_bullet(tf20_1, "Claims Audit:", "Constructed claims-vs-evidence matrix and assumptions catalog.", pt_size=11)
 
-    add_card(slide20, Inches(3.8), Inches(1.5), Inches(2.8), Inches(5.4), "Member 2 (Reproduction Lead)")
+    add_card(slide20, Inches(3.8), Inches(1.5), Inches(2.8), Inches(5.4), "Vihaan Gupta (CS24B1063)\nReproduction Lead")
     tf20_2 = slide20.shapes.add_textbox(Inches(3.9), Inches(2.1), Inches(2.6), Inches(4.6)).text_frame
     tf20_2.word_wrap = True
     add_bullet(tf20_2, "Data Engine:", "Built Poitiers-calibrated cellular traffic generator and dataset pipeline.", pt_size=11)
     add_bullet(tf20_2, "Baselines:", "Implemented DLSTM local agents and Centralized LSTM baseline.", pt_size=11)
     add_bullet(tf20_2, "FL Core:", "Developed FALSTM, True FedProx, and Alg. 2 literal variant.", pt_size=11)
 
-    add_card(slide20, Inches(6.8), Inches(1.5), Inches(2.8), Inches(5.4), "Member 3 (Scalability Lead)")
+    add_card(slide20, Inches(6.8), Inches(1.5), Inches(2.8), Inches(5.4), "Piyush Mishra (CS24B1048)\nScalability Lead")
     tf20_3 = slide20.shapes.add_textbox(Inches(6.9), Inches(2.1), Inches(2.6), Inches(4.6)).text_frame
     tf20_3.word_wrap = True
     add_bullet(tf20_3, "Clustering:", "Implemented IC-Trend (PCA+Elbow) and IC-Geo (Lat/Long).", pt_size=11)
     add_bullet(tf20_3, "Bug Detection:", "Diagnosed and corrected Algorithm 4 set shrinkage bug (RC-FPLSTM).", pt_size=11)
     add_bullet(tf20_3, "Communication:", "Modeled 2*C*N*Omega*psi overhead and wall-clock scaling.", pt_size=11)
 
-    add_card(slide20, Inches(9.8), Inches(1.5), Inches(2.8), Inches(5.4), "Member 4 (Extension Lead)")
+    add_card(slide20, Inches(9.8), Inches(1.5), Inches(2.8), Inches(5.4), "Narayana Murthy S (CS24B1047)\nExtension Lead")
     tf20_4 = slide20.shapes.add_textbox(Inches(9.9), Inches(2.1), Inches(2.6), Inches(4.6)).text_frame
     tf20_4.word_wrap = True
     add_bullet(tf20_4, "Critical Audit:", "Spearheaded 10-point critique with quotes and proofs.", pt_size=11)

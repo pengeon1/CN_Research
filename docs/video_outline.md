@@ -7,7 +7,7 @@
 
 ---
 
-## Member 1: Paper Analyst & System Model Specialist (M1)
+## Member 1: Ankush R (CS24B1062) — Paper Analyst & System Model Specialist (M1)
 
 ### Role & Ownership
 Responsible for explaining the fundamental research problem, industrial motivation in 5G RAN slicing, mathematical modeling, algorithmic foundations, explicit/implicit assumptions, and the initial claims-vs-evidence audit.
@@ -41,7 +41,7 @@ Responsible for explaining the fundamental research problem, industrial motivati
 
 ---
 
-## Member 2: Reproduction Lead & FL Core Engineer (M2)
+## Member 2: Vihaan Gupta (CS24B1063) — Reproduction Lead & FL Core Engineer (M2)
 
 ### Role & Ownership
 Responsible for the data pipeline, calibrated synthetic cellular generator, preprocessor scaling, non-collaborative DLSTM and centralized LSTM baselines, and faithful reproduction of FALSTM vs. FPLSTM.
@@ -75,7 +75,7 @@ Responsible for the data pipeline, calibrated synthetic cellular generator, prep
 
 ---
 
-## Member 3: Scalability Lead & Clustering Architect (M3)
+## Member 3: Piyush Mishra (CS24B1048) — Scalability Lead & Clustering Architect (M3)
 
 ### Role & Ownership
 Responsible for IC-FPLSTM (traffic trend and lat/long), RC-FPLSTM, the discovery and fix of the Algorithm 4 shrinking-threshold bug, client participation rate analysis, communication cost modeling, and CPU scaling.
@@ -108,7 +108,7 @@ Responsible for IC-FPLSTM (traffic trend and lat/long), RC-FPLSTM, the discovery
 
 ---
 
-## Member 4: Extension Lead & Critical Auditor (M4)
+## Member 4: Narayana Murthy S (CS24B1047) — Extension Lead & Critical Auditor (M4)
 
 ### Role & Ownership
 Responsible for synthesizing the 10-point critical audit, presenting our 4 methodological improvements (sample-weighted aggregation, model-similarity clustering, SLA-aware loss, and differential privacy), and summarizing conclusions.
