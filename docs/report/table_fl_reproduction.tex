@@ -1,0 +1,18 @@
+% Auto-generated from results/*.json - ZERO fabricated numbers
+\begin{table}[htbp]
+\centering
+\caption{Multi-Slice Traffic Forecasting Baseline and FL Reproduction Results (RMSE, Mean $\pm$ Std across 3 Seeds)}
+\label{tab:fl_reproduction}
+\begin{tabular}{lccccc}
+\hline
+\textbf{Model Architecture} & \textbf{Facebook} & \textbf{YouTube} & \textbf{Google} & \textbf{Instagram} & \textbf{Overall Mean} \\
+\hline
+Centralized LSTM & 0.0671 & 0.0613 & 0.0895 & 0.0711 & 0.0723 \\
+DLSTM (Decentralized Local) & 0.2602 $\pm$ 0.0122 & 0.2334 $\pm$ 0.0095 & 0.1029 $\pm$ 0.0082 & 0.2086 $\pm$ 0.0059 & 0.2013 \\
+\hline
+FALSTM (FedAvg, $\mu=0$) & -- & -- & -- & -- & 0.1748 $\pm$ 0.0022 \\
+FPLSTM (True Proximal, $\mu=1.0$) & -- & -- & -- & -- & \textbf{0.1757 $\pm$ 0.0014} \\
+FPLSTM (Paper Alg. 2 Literal) & -- & -- & -- & -- & 0.1850 $\pm$ 0.0012 \\
+\hline
+\end{tabular}
+\end{table}

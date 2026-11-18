@@ -1,0 +1,1040 @@
+{
+  "seed_42": {
+    "IC_FPLSTM_Traffic_Trend": {
+      "Facebook": {
+        "mean_rmse": 0.2792473591909357,
+        "total_time_seconds": 13.296570301055908,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 18,
+            "test_rmse": 0.24443731882545505,
+            "time_seconds": 4.883934497833252
+          },
+          "cluster_1": {
+            "num_stations": 25,
+            "test_rmse": 0.2612813107696708,
+            "time_seconds": 5.387583255767822
+          },
+          "cluster_2": {
+            "num_stations": 14,
+            "test_rmse": 0.35608535469881214,
+            "time_seconds": 3.025052547454834
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.26667602354609565,
+        "total_time_seconds": 10.217730522155762,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 18,
+            "test_rmse": 0.2853249887038243,
+            "time_seconds": 3.2759323120117188
+          },
+          "cluster_1": {
+            "num_stations": 25,
+            "test_rmse": 0.2810780741249297,
+            "time_seconds": 4.486805438995361
+          },
+          "cluster_2": {
+            "num_stations": 14,
+            "test_rmse": 0.21698083516681227,
+            "time_seconds": 2.4549927711486816
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.1362078491437147,
+        "total_time_seconds": 10.05424165725708,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 28,
+            "test_rmse": 0.16479338257991216,
+            "time_seconds": 4.926442623138428
+          },
+          "cluster_1": {
+            "num_stations": 28,
+            "test_rmse": 0.10896060679799059,
+            "time_seconds": 4.935551881790161
+          },
+          "cluster_2": {
+            "num_stations": 1,
+            "test_rmse": 0.0987356986104603,
+            "time_seconds": 0.1922471523284912
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.20111402404654524,
+        "total_time_seconds": 10.180689811706543,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 18,
+            "test_rmse": 0.20738903231062614,
+            "time_seconds": 3.228388786315918
+          },
+          "cluster_1": {
+            "num_stations": 25,
+            "test_rmse": 0.20454997087876892,
+            "time_seconds": 4.464710235595703
+          },
+          "cluster_2": {
+            "num_stations": 14,
+            "test_rmse": 0.1869105369351847,
+            "time_seconds": 2.487590789794922
+          }
+        }
+      }
+    },
+    "IC_FPLSTM_Lat_Long": {
+      "Facebook": {
+        "mean_rmse": 0.2943005919766687,
+        "total_time_seconds": 12.220375061035156,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 45,
+            "test_rmse": 0.30033733467972656,
+            "time_seconds": 9.620537996292114
+          },
+          "cluster_1": {
+            "num_stations": 2,
+            "test_rmse": 0.19645730946798481,
+            "time_seconds": 0.4355182647705078
+          },
+          "cluster_2": {
+            "num_stations": 10,
+            "test_rmse": 0.28670390631464515,
+            "time_seconds": 2.164318799972534
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.20499740829239255,
+        "total_time_seconds": 10.333510875701904,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 45,
+            "test_rmse": 0.20668815482532937,
+            "time_seconds": 7.986409425735474
+          },
+          "cluster_1": {
+            "num_stations": 2,
+            "test_rmse": 0.18132603044934,
+            "time_seconds": 0.3563823699951172
+          },
+          "cluster_2": {
+            "num_stations": 10,
+            "test_rmse": 0.2021233244627875,
+            "time_seconds": 1.9907190799713135
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.10378545308428203,
+        "total_time_seconds": 12.24504017829895,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 45,
+            "test_rmse": 0.08894823703931148,
+            "time_seconds": 9.65588927268982
+          },
+          "cluster_1": {
+            "num_stations": 2,
+            "test_rmse": 0.16074414340200843,
+            "time_seconds": 0.43445253372192383
+          },
+          "cluster_2": {
+            "num_stations": 10,
+            "test_rmse": 0.1591611872231041,
+            "time_seconds": 2.154698371887207
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.23607174356485974,
+        "total_time_seconds": 10.199967861175537,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 45,
+            "test_rmse": 0.22740823764601528,
+            "time_seconds": 8.044703245162964
+          },
+          "cluster_1": {
+            "num_stations": 2,
+            "test_rmse": 0.2736366098278221,
+            "time_seconds": 0.3794138431549072
+          },
+          "cluster_2": {
+            "num_stations": 10,
+            "test_rmse": 0.2675445469470673,
+            "time_seconds": 1.775850772857666
+          }
+        }
+      }
+    },
+    "RC_FPLSTM_Fixed": {
+      "Facebook": {
+        "mean_rmse": 0.29472675132269194,
+        "total_time_seconds": 11.561256885528564,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.29965332296125696,
+            "time_seconds": 4.085246324539185
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.24306192549438707,
+            "time_seconds": 4.0922017097473145
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.34146500551243175,
+            "time_seconds": 3.3838088512420654
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.26557263993774666,
+        "total_time_seconds": 10.905969142913818,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.2312712075427079,
+            "time_seconds": 4.114559173583984
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.32466585449354296,
+            "time_seconds": 3.4301888942718506
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.24078085777698893,
+            "time_seconds": 3.3612210750579834
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.12144182097812269,
+        "total_time_seconds": 10.171210765838623,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.10353187643178582,
+            "time_seconds": 3.453895092010498
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.17562224905483284,
+            "time_seconds": 3.3595831394195557
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.08517133744774932,
+            "time_seconds": 3.3577325344085693
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.20062364785539358,
+        "total_time_seconds": 10.771925449371338,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.2243859013023085,
+            "time_seconds": 4.068495512008667
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.2015998559195479,
+            "time_seconds": 3.3512110710144043
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.1758851863443243,
+            "time_seconds": 3.3522188663482666
+          }
+        }
+      }
+    },
+    "RC_FPLSTM_Buggy": {
+      "Facebook": {
+        "mean_rmse": 0.28999964098084924,
+        "total_time_seconds": 10.364861726760864,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 22,
+            "test_rmse": 0.32186201305757944,
+            "time_seconds": 4.009564399719238
+          },
+          "cluster_1": {
+            "num_stations": 20,
+            "test_rmse": 0.26995473822448324,
+            "time_seconds": 3.608049154281616
+          },
+          "cluster_2": {
+            "num_stations": 15,
+            "test_rmse": 0.2699946989434663,
+            "time_seconds": 2.7472481727600098
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.2102779970564805,
+        "total_time_seconds": 10.088555812835693,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 22,
+            "test_rmse": 0.21794318467391055,
+            "time_seconds": 3.878509521484375
+          },
+          "cluster_1": {
+            "num_stations": 20,
+            "test_rmse": 0.20120003679020945,
+            "time_seconds": 3.5545363426208496
+          },
+          "cluster_2": {
+            "num_stations": 15,
+            "test_rmse": 0.2111396689059446,
+            "time_seconds": 2.6555099487304688
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.12361207114594763,
+        "total_time_seconds": 10.162734985351562,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 22,
+            "test_rmse": 0.1495648768323344,
+            "time_seconds": 3.915332078933716
+          },
+          "cluster_1": {
+            "num_stations": 20,
+            "test_rmse": 0.08927713306473635,
+            "time_seconds": 3.5539138317108154
+          },
+          "cluster_2": {
+            "num_stations": 15,
+            "test_rmse": 0.13132787358086206,
+            "time_seconds": 2.6934890747070312
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.22988746950664418,
+        "total_time_seconds": 10.221651077270508,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 22,
+            "test_rmse": 0.2885300654613027,
+            "time_seconds": 3.919325113296509
+          },
+          "cluster_1": {
+            "num_stations": 20,
+            "test_rmse": 0.1872460345005776,
+            "time_seconds": 3.5953426361083984
+          },
+          "cluster_2": {
+            "num_stations": 15,
+            "test_rmse": 0.20073357544790046,
+            "time_seconds": 2.7069833278656006
+          }
+        }
+      }
+    }
+  },
+  "seed_1337": {
+    "IC_FPLSTM_Traffic_Trend": {
+      "Facebook": {
+        "mean_rmse": 0.28622830534663657,
+        "total_time_seconds": 10.148772239685059,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 16,
+            "test_rmse": 0.29710491989658017,
+            "time_seconds": 2.8411526679992676
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.3352058181505455,
+            "time_seconds": 3.391425609588623
+          },
+          "cluster_2": {
+            "num_stations": 22,
+            "test_rmse": 0.23601927916148358,
+            "time_seconds": 3.916193962097168
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.2418248430665046,
+        "total_time_seconds": 10.11685562133789,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 16,
+            "test_rmse": 0.22133563006632548,
+            "time_seconds": 2.827592134475708
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.29003298979635866,
+            "time_seconds": 3.3345673084259033
+          },
+          "cluster_2": {
+            "num_stations": 22,
+            "test_rmse": 0.21509178034539717,
+            "time_seconds": 3.9546961784362793
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.12515832781398564,
+        "total_time_seconds": 10.166072607040405,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 16,
+            "test_rmse": 0.13153057702382312,
+            "time_seconds": 2.841958522796631
+          },
+          "cluster_1": {
+            "num_stations": 40,
+            "test_rmse": 0.12136461033414432,
+            "time_seconds": 7.146275043487549
+          },
+          "cluster_2": {
+            "num_stations": 1,
+            "test_rmse": 0.17495103965023964,
+            "time_seconds": 0.17783904075622559
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.2094513165634141,
+        "total_time_seconds": 10.009079933166504,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 16,
+            "test_rmse": 0.25072387986610717,
+            "time_seconds": 2.822831630706787
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.17652444273210832,
+            "time_seconds": 3.3177504539489746
+          },
+          "cluster_2": {
+            "num_stations": 22,
+            "test_rmse": 0.2078717524703104,
+            "time_seconds": 3.868497848510742
+          }
+        }
+      }
+    },
+    "IC_FPLSTM_Lat_Long": {
+      "Facebook": {
+        "mean_rmse": 0.24296637232443255,
+        "total_time_seconds": 11.016306161880493,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 20,
+            "test_rmse": 0.2656867492796598,
+            "time_seconds": 3.570470094680786
+          },
+          "cluster_1": {
+            "num_stations": 23,
+            "test_rmse": 0.22288792458067236,
+            "time_seconds": 5.003514051437378
+          },
+          "cluster_2": {
+            "num_stations": 14,
+            "test_rmse": 0.24349471225314254,
+            "time_seconds": 2.442322015762329
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.21521722637172433,
+        "total_time_seconds": 10.070285320281982,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 20,
+            "test_rmse": 0.19841730745846464,
+            "time_seconds": 3.553415060043335
+          },
+          "cluster_1": {
+            "num_stations": 23,
+            "test_rmse": 0.22933541782416147,
+            "time_seconds": 4.096801042556763
+          },
+          "cluster_2": {
+            "num_stations": 14,
+            "test_rmse": 0.216022938861663,
+            "time_seconds": 2.4200692176818848
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.10656132026386585,
+        "total_time_seconds": 10.045961141586304,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 20,
+            "test_rmse": 0.10216938227033139,
+            "time_seconds": 3.50142502784729
+          },
+          "cluster_1": {
+            "num_stations": 23,
+            "test_rmse": 0.10404081229262113,
+            "time_seconds": 4.068145036697388
+          },
+          "cluster_2": {
+            "num_stations": 14,
+            "test_rmse": 0.11697635192167431,
+            "time_seconds": 2.476391077041626
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.2270113760439998,
+        "total_time_seconds": 10.107012033462524,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 20,
+            "test_rmse": 0.29733134818133905,
+            "time_seconds": 3.543790817260742
+          },
+          "cluster_1": {
+            "num_stations": 23,
+            "test_rmse": 0.181266899494603,
+            "time_seconds": 4.040137767791748
+          },
+          "cluster_2": {
+            "num_stations": 14,
+            "test_rmse": 0.20170591303609559,
+            "time_seconds": 2.523083448410034
+          }
+        }
+      }
+    },
+    "RC_FPLSTM_Fixed": {
+      "Facebook": {
+        "mean_rmse": 0.2676697178172072,
+        "total_time_seconds": 11.587258577346802,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.2827549879033719,
+            "time_seconds": 4.085136413574219
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.2540850463864245,
+            "time_seconds": 4.139817237854004
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.2661691191618254,
+            "time_seconds": 3.362304925918579
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.254426657949673,
+        "total_time_seconds": 10.043702125549316,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.27207274073322285,
+            "time_seconds": 3.3302724361419678
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.29216312035065295,
+            "time_seconds": 3.370337963104248
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.19904411276514328,
+            "time_seconds": 3.3430917263031006
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.11515067359952105,
+        "total_time_seconds": 10.090835809707642,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.0951471997461296,
+            "time_seconds": 3.3768858909606934
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.11690573417862167,
+            "time_seconds": 3.351670742034912
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.13339908687381188,
+            "time_seconds": 3.362279176712036
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.23943174839668124,
+        "total_time_seconds": 10.065210342407227,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.22078686492118857,
+            "time_seconds": 3.3375802040100098
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.29897482787627616,
+            "time_seconds": 3.3543601036071777
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.19853355239257897,
+            "time_seconds": 3.373270034790039
+          }
+        }
+      }
+    },
+    "RC_FPLSTM_Buggy": {
+      "Facebook": {
+        "mean_rmse": 0.2526756162979001,
+        "total_time_seconds": 11.115936517715454,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.23183188002952626,
+            "time_seconds": 4.999508380889893
+          },
+          "cluster_1": {
+            "num_stations": 16,
+            "test_rmse": 0.3012746168271817,
+            "time_seconds": 2.881744146347046
+          },
+          "cluster_2": {
+            "num_stations": 18,
+            "test_rmse": 0.23611016772590515,
+            "time_seconds": 3.2346839904785156
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.234244678949594,
+        "total_time_seconds": 10.134881973266602,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.24795664633242975,
+            "time_seconds": 4.124722719192505
+          },
+          "cluster_1": {
+            "num_stations": 16,
+            "test_rmse": 0.2261710757641227,
+            "time_seconds": 2.8152031898498535
+          },
+          "cluster_2": {
+            "num_stations": 18,
+            "test_rmse": 0.22390036790305606,
+            "time_seconds": 3.194956064224243
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.13796970327574926,
+        "total_time_seconds": 10.133319616317749,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.14085995772137655,
+            "time_seconds": 4.086904048919678
+          },
+          "cluster_1": {
+            "num_stations": 16,
+            "test_rmse": 0.15742679284527397,
+            "time_seconds": 2.846646308898926
+          },
+          "cluster_2": {
+            "num_stations": 18,
+            "test_rmse": 0.1169814096445369,
+            "time_seconds": 3.1997692584991455
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.21824198788277194,
+        "total_time_seconds": 10.580880641937256,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.21893411895149661,
+            "time_seconds": 4.38721227645874
+          },
+          "cluster_1": {
+            "num_stations": 16,
+            "test_rmse": 0.1963205198754879,
+            "time_seconds": 2.954165458679199
+          },
+          "cluster_2": {
+            "num_stations": 18,
+            "test_rmse": 0.23684334752365396,
+            "time_seconds": 3.2395029067993164
+          }
+        }
+      }
+    }
+  },
+  "seed_2024": {
+    "IC_FPLSTM_Traffic_Trend": {
+      "Facebook": {
+        "mean_rmse": 0.27408287553236776,
+        "total_time_seconds": 11.061887264251709,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.2946190998406837,
+            "time_seconds": 4.92931056022644
+          },
+          "cluster_1": {
+            "num_stations": 20,
+            "test_rmse": 0.23604928946817588,
+            "time_seconds": 3.696169137954712
+          },
+          "cluster_2": {
+            "num_stations": 14,
+            "test_rmse": 0.2946784871175515,
+            "time_seconds": 2.4364075660705566
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.24828772395332527,
+        "total_time_seconds": 10.263823509216309,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 22,
+            "test_rmse": 0.2532767495230432,
+            "time_seconds": 3.881572723388672
+          },
+          "cluster_1": {
+            "num_stations": 14,
+            "test_rmse": 0.23218870019813692,
+            "time_seconds": 2.633418321609497
+          },
+          "cluster_2": {
+            "num_stations": 21,
+            "test_rmse": 0.25379380824088915,
+            "time_seconds": 3.7488324642181396
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.10336444408246623,
+        "total_time_seconds": 12.129280805587769,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 32,
+            "test_rmse": 0.10469832156984184,
+            "time_seconds": 6.801025152206421
+          },
+          "cluster_1": {
+            "num_stations": 24,
+            "test_rmse": 0.09642718992291088,
+            "time_seconds": 5.108901739120483
+          },
+          "cluster_2": {
+            "num_stations": 1,
+            "test_rmse": 0.22717446431577523,
+            "time_seconds": 0.21935391426086426
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.20704864073811413,
+        "total_time_seconds": 10.1013662815094,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.24945939196898387,
+            "time_seconds": 3.9753315448760986
+          },
+          "cluster_1": {
+            "num_stations": 20,
+            "test_rmse": 0.18011860073492508,
+            "time_seconds": 3.6016712188720703
+          },
+          "cluster_2": {
+            "num_stations": 14,
+            "test_rmse": 0.17584532086338397,
+            "time_seconds": 2.5243635177612305
+          }
+        }
+      }
+    },
+    "IC_FPLSTM_Lat_Long": {
+      "Facebook": {
+        "mean_rmse": 0.3323052293576959,
+        "total_time_seconds": 10.824347496032715,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.3007846878506148,
+            "time_seconds": 4.061852693557739
+          },
+          "cluster_1": {
+            "num_stations": 31,
+            "test_rmse": 0.3538269488034217,
+            "time_seconds": 5.52777361869812
+          },
+          "cluster_2": {
+            "num_stations": 7,
+            "test_rmse": 0.3225505130458443,
+            "time_seconds": 1.2347211837768555
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.26072844548235286,
+        "total_time_seconds": 10.193321943283081,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.29118444794138193,
+            "time_seconds": 3.477037191390991
+          },
+          "cluster_1": {
+            "num_stations": 31,
+            "test_rmse": 0.2451688489425695,
+            "time_seconds": 5.474607229232788
+          },
+          "cluster_2": {
+            "num_stations": 7,
+            "test_rmse": 0.2469689377697432,
+            "time_seconds": 1.2416775226593018
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.11952103513868872,
+        "total_time_seconds": 10.977480411529541,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.12109080317885659,
+            "time_seconds": 3.3483405113220215
+          },
+          "cluster_1": {
+            "num_stations": 31,
+            "test_rmse": 0.11757479414511256,
+            "time_seconds": 6.126319408416748
+          },
+          "cluster_2": {
+            "num_stations": 7,
+            "test_rmse": 0.12387930342978483,
+            "time_seconds": 1.5028204917907715
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.1957954032933864,
+        "total_time_seconds": 10.202418565750122,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.18909345256783974,
+            "time_seconds": 3.3829760551452637
+          },
+          "cluster_1": {
+            "num_stations": 31,
+            "test_rmse": 0.19754347495510452,
+            "time_seconds": 5.5566935539245605
+          },
+          "cluster_2": {
+            "num_stations": 7,
+            "test_rmse": 0.20624495218940433,
+            "time_seconds": 1.2627489566802979
+          }
+        }
+      }
+    },
+    "RC_FPLSTM_Fixed": {
+      "Facebook": {
+        "mean_rmse": 0.3010365764119609,
+        "total_time_seconds": 9.990244626998901,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.32835634172559497,
+            "time_seconds": 3.3463094234466553
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.3295349011885649,
+            "time_seconds": 3.2682485580444336
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.24521848632172283,
+            "time_seconds": 3.3756866455078125
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.23646741460977883,
+        "total_time_seconds": 10.106480360031128,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.23643281307092412,
+            "time_seconds": 3.3675832748413086
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.22943369553614512,
+            "time_seconds": 3.337261438369751
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.24353573522226735,
+            "time_seconds": 3.4016356468200684
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.10638372707680624,
+        "total_time_seconds": 10.923398494720459,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.1079721748301159,
+            "time_seconds": 4.094749689102173
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.12177199001861644,
+            "time_seconds": 3.38718843460083
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.08940701638168637,
+            "time_seconds": 3.441460371017456
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.20794052228883142,
+        "total_time_seconds": 10.138976097106934,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 19,
+            "test_rmse": 0.2401920592263312,
+            "time_seconds": 3.403738021850586
+          },
+          "cluster_1": {
+            "num_stations": 19,
+            "test_rmse": 0.18938954669032132,
+            "time_seconds": 3.3494293689727783
+          },
+          "cluster_2": {
+            "num_stations": 19,
+            "test_rmse": 0.19423996094984172,
+            "time_seconds": 3.3858087062835693
+          }
+        }
+      }
+    },
+    "RC_FPLSTM_Buggy": {
+      "Facebook": {
+        "mean_rmse": 0.24083719847134052,
+        "total_time_seconds": 10.094440698623657,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.23804292956758952,
+            "time_seconds": 4.065633773803711
+          },
+          "cluster_1": {
+            "num_stations": 17,
+            "test_rmse": 0.26399611189190875,
+            "time_seconds": 3.014697551727295
+          },
+          "cluster_2": {
+            "num_stations": 17,
+            "test_rmse": 0.22145876650878846,
+            "time_seconds": 3.0141093730926514
+          }
+        }
+      },
+      "YouTube": {
+        "mean_rmse": 0.2284173661861679,
+        "total_time_seconds": 10.261888265609741,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.22588945215426895,
+            "time_seconds": 4.2171690464019775
+          },
+          "cluster_1": {
+            "num_stations": 17,
+            "test_rmse": 0.22785526328129044,
+            "time_seconds": 2.9655964374542236
+          },
+          "cluster_2": {
+            "num_stations": 17,
+            "test_rmse": 0.23239958807537928,
+            "time_seconds": 3.07912278175354
+          }
+        }
+      },
+      "Google": {
+        "mean_rmse": 0.1392487515661161,
+        "total_time_seconds": 10.191739797592163,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.12366129443916668,
+            "time_seconds": 4.050121307373047
+          },
+          "cluster_1": {
+            "num_stations": 17,
+            "test_rmse": 0.13080978881430175,
+            "time_seconds": 3.026867151260376
+          },
+          "cluster_2": {
+            "num_stations": 17,
+            "test_rmse": 0.16877662690145023,
+            "time_seconds": 3.1147513389587402
+          }
+        }
+      },
+      "Instagram": {
+        "mean_rmse": 0.2337186598302434,
+        "total_time_seconds": 10.851123332977295,
+        "cluster_details": {
+          "cluster_0": {
+            "num_stations": 23,
+            "test_rmse": 0.20277386036291886,
+            "time_seconds": 4.125568866729736
+          },
+          "cluster_1": {
+            "num_stations": 17,
+            "test_rmse": 0.25612074951174824,
+            "time_seconds": 3.0593299865722656
+          },
+          "cluster_2": {
+            "num_stations": 17,
+            "test_rmse": 0.25318306354570697,
+            "time_seconds": 3.666224479675293
+          }
+        }
+      }
+    }
+  }
+}
