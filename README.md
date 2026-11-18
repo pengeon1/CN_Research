@@ -15,7 +15,7 @@ This repository contains the complete, reproducible source code, empirical bench
 
 ---
 
-## 👥 Undergraduate Research Team & Member Roles
+## Undergraduate Research Team & Member Roles
 
 | Team Member | Research Title / Role | Core Responsibilities |
 | :--- | :--- | :--- |
@@ -26,7 +26,7 @@ This repository contains the complete, reproducible source code, empirical bench
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 CN_Research/
@@ -73,7 +73,7 @@ CN_Research/
 
 ---
 
-## 🚀 Quickstart & One-Command Reproduction
+## Quickstart & One-Command Reproduction
 
 ### 1. Setup Environment
 ```bash
@@ -111,7 +111,7 @@ Individual pipeline targets:
 
 ---
 
-## 📊 Summary of Experimental Results (Mean ± Std over 3 Seeds)
+## Summary of Experimental Results (Mean ± Std over 3 Seeds)
 
 All numbers below are extracted directly from `results/*.json` produced across fixed seeds `[42, 1337, 2024]`. **Zero numbers are fabricated.**
 
@@ -140,7 +140,7 @@ All numbers below are extracted directly from `results/*.json` produced across f
 
 ---
 
-## 🔍 Critical Audit Summary (10 Key Findings)
+## Critical Audit Summary (10 Key Findings)
 
 For detailed mathematical proofs, verbatim paper quotes, and code traces, see [`docs/notes/critique.md`](docs/notes/critique.md).
 
@@ -157,7 +157,7 @@ For detailed mathematical proofs, verbatim paper quotes, and code traces, see [`
 
 ---
 
-## 💡 Four Proposed Resilient Improvements
+## Four Proposed Resilient Improvements
 
 | Extension | Motivation & Mechanism | Validated Benefit |
 | :--- | :--- | :--- |
@@ -168,7 +168,7 @@ For detailed mathematical proofs, verbatim paper quotes, and code traces, see [`
 
 ---
 
-## 📜 Deliverables & Documentation
+## Deliverables & Documentation
 
 - **Technical Report (LaTeX & PDF):** [`docs/report/main.tex`](docs/report/main.tex) and [`docs/report/main.pdf`](docs/report/main.pdf) (compiled IEEE two-column paper).
 - **Presentation Slides:** [`docs/slides/presentation.pptx`](docs/slides/presentation.pptx) (21-slide widescreen 16:9 deck with figures).
@@ -178,5 +178,5 @@ For detailed mathematical proofs, verbatim paper quotes, and code traces, see [`
 
 ---
 
-## ⚖️ License
+## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
